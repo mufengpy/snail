@@ -11,4 +11,4 @@ from snail.logger import log
 
 from snail.html import render, HttpResponse
 
-from snail.conf import url, url_for, redirect
+from snail.conf import url, reverse, redirect

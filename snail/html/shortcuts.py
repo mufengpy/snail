@@ -2,7 +2,7 @@
 __author__ = 'hy'
 from jinja2 import Template
 from jinja2 import FileSystemLoader, Environment
-from snail.conf.urls import url_for
+from snail import reverse
 from snail.conf import TEMPLATES_PATH
 
 import re
@@ -73,4 +73,4 @@ def render(html, **kwargs):
 
     template = Template(data)
 
-    return template.render(url_for=url_for, **kwargs).encode('utf-8')
+    return template.render(reverse=reverse, **kwargs).encode('utf-8')

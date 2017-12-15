@@ -9,7 +9,7 @@ def url(regex, func, name=None):
     return (regex, func, name)
 
 
-def url_for(name):
+def reverse(name):
     from app.urls import urlpatterns
     for item in urlpatterns:
         if re.match(item[2], name):

@@ -3,5 +3,5 @@ __author__ = 'hy'
 
 from .settings import *
 
-from snail.conf.urls import url, url_for, redirect
+from snail.conf.urls import url, reverse, redirect
 
