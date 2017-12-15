@@ -4,7 +4,7 @@ python3/Custom asynchronous Web Framework  , current function:
 
 * socket: asynchronous(gevent) socket  , consider to be websocket in the future
 
-* template language:jinjia2, redifine render, Httpresponse, redirect, etc base on jinjia2
+* template language:jinjia2, redifine render, Httpresponse, redirect, reverse, etc base on jinjia2
 
 * snail_orm: base on sqlalchemy ，auto generate tablename and primary_key id, define session of db 
 
