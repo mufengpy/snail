@@ -12,7 +12,7 @@ from snail.exception import CtrlCException
 import http.cookies as Cookie
 import datetime
 import random
-from snail.utils import strtobyte
+from snail.utils import strtobyte, bytetostr
 
 monkey.patch_all()
 
@@ -91,7 +91,7 @@ class Request(object):
                     if image_info:
 
                         filename, file_data = image_info.group(2, 3)
-                        filename = str(filename, encoding='utf-8')
+                        filename = bytetostr(filename)
 
                         if filename not in os.listdir('media'):
                             # 处理图片、文本等普通文件
@@ -109,7 +109,7 @@ class Request(object):
                             break
 
                 else:
-                    item = str(item, encoding='utf-8')
+                    item = bytetostr(item)
                     # print(item)
                     re_field = re.compile(r'\r\n.*name="(.*)"\r\n\r\n(.*)\r\n', re.S)
                     field_info = re_field.match(item)
@@ -143,7 +143,7 @@ class Server(object):
             if not request:
                 conn.close()
 
-            method, url, protocal = str(request.split(b'\r\n')[0], encoding='utf-8').split(' ')
+            method, url, protocal = bytetostr(request.split(b'\r\n')[0]).split(' ')
             print(request)
 
             dict_requestinfo = {
@@ -157,13 +157,13 @@ class Server(object):
 
             if method == 'POST':
 
-                if bytes(contenttype_urlencoded, encoding='utf-8') in request:
-                    str_request = str(request, encoding='utf-8')
+                if strtobyte(contenttype_urlencoded) in request:
+                    str_request = bytetostr(request)
                     request_header, request_body = str_request.split('\r\n\r\n')
                     headers = Request(body=request_body, boundary=None, contenttype=contenttype_urlencoded,
                                       **dict_requestinfo, )
 
-                if bytes(contenttype_multipart, encoding='utf-8') in request:
+                if strtobyte(contenttype_multipart) in request:
                     item_byterequest = request.split(b'\r\n')
                     re_boundary = re.compile(b'.*boundary=(.*)')
                     for item in item_byterequest:
