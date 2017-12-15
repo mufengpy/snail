@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link  rel="stylesheet" href="/static/css/login.css"  />
+    <link  rel="stylesheet" href="/static/css/index.css" />
+
+</head>
+
+<body>
+    <span class="header-title">用户登录</span>
+    <p class="header-index">{{ error}}</p>
+    <form method="post" action="/" enctype="multipart/form-data">
+        <p><input type="text" placeholder="用户名" name="username" value="hy" /></p>
+        <p><input type="password" placeholder="密码" name="password" value="hypassword" /></p>
+        <!--<p><input type="email" placeholder="邮箱" name="email" value="598779784@qq.com" /></p>-->
+        <p><input type="file" name="uploadfile"></p>
+        <p><input type="submit" /></p>
+    </form>
+
+</body>
+<script src="/static/js/hello.js"></script>　
+<script src="/static/js/index.js"></script>　
+</html>

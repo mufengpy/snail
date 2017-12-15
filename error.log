@@ -1,0 +1,4 @@
+[12/10/2017 14:50:22 INFO ] [snail\exception\handctrlc.py:line12],KeyboardInterrupt 
+[12/16/2017 02:47:52 INFO ] [snail\db\dbinit.py:line57],db rollback 
+[12/16/2017 02:47:54 INFO ] [snail\db\dbinit.py:line57],db rollback 
+[12/16/2017 02:48:16 INFO ] [snail\db\dbinit.py:line57],db rollback 
